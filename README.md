@@ -1,36 +1,109 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Landing Page Template — Guía rápida
 
-## Getting Started
+Template reutilizable de landing pages construido con **Next.js + Tailwind CSS v4 + Supabase**.
+Diseñado para reconfigurarse por cliente editando **un solo archivo**: `src/config/site.ts`.
 
-First, run the development server:
+---
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+## Stack
+
+- Next.js (App Router)
+- Tailwind CSS v4 (theming vía `@theme` en `globals.css`)
+- Supabase (formulario de leads)
+- lucide-react (íconos)
+- next/font (Space Grotesk + Inter)
+
+---
+
+## Estructura del proyecto
+
+```
+/src
+  /app
+    layout.tsx          → fonts + inyecta el theme (colores) del cliente
+    page.tsx             → ensambla las secciones en orden
+    globals.css           → colores/fuentes por defecto (fallback)
+  /components
+    /sections             → Header, Hero, Features, Testimonials, Pricing, FAQ, Footer
+    /ui                    → Icon.tsx (mapa de íconos usados en siteConfig)
+  /config
+    site.ts               → ★ ÚNICO archivo que cambia por cliente ★
+  /lib
+    supabase.ts            → cliente de Supabase (cuando se conecte)
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+---
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Cómo crear una landing para un cliente nuevo
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+1. **Duplica la config actual como respaldo** (opcional pero recomendado):
+   ```bash
+   cp src/config/site.ts src/config/site.[nombre-cliente].ts
+   ```
 
-## Learn More
+2. **Edita `src/config/site.ts`** con los datos del nuevo cliente:
+   - `company` → nombre, logo, tagline
+   - `theme` → 3 colores (`primaryColor`, `secondaryColor`, `accentColor`)
+   - `sections` → activa/desactiva secciones con `enabled: true/false` y llena textos, features, testimonios, planes y preguntas frecuentes
+   - `contact` → email, WhatsApp
 
-To learn more about Next.js, take a look at the following resources:
+   **No es necesario tocar ningún componente ni `globals.css`.** El color se propaga automáticamente vía `layout.tsx`.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+3. **Reemplaza las imágenes** en `/public`:
+   - `logo.png`
+   - `hero-image.png`
+   - Avatares de testimonios (si aplica)
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+4. **Prueba localmente:**
+   ```bash
+   npm run dev
+   ```
+   Revisa `localhost:3000` completo, incluyendo mobile (herramientas de desarrollador → toggle device).
 
-## Deploy on Vercel
+5. **Build de producción para verificar que no hay errores:**
+   ```bash
+   npm run build
+   ```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+6. **Deploy** (recomendado Vercel — gratis y con dominio automático):
+   ```bash
+   npx vercel
+   ```
+   O conecta el repo de GitHub directamente desde vercel.com.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+---
+
+## Activar/desactivar secciones
+
+Cada sección en `siteConfig.sections` tiene su propio `enabled: true/false`.
+Ejemplo: si el cliente no necesita "Cómo funciona":
+
+```ts
+howItWorks: {
+  enabled: false,
+  ...
+}
+```
+
+El componente correspondiente se auto-oculta sin necesidad de borrar código.
+
+---
+
+## Notas importantes
+
+- **Colores:** se definen solo en `siteConfig.theme`. Nunca edites los colores directamente en `globals.css` — ese archivo solo tiene valores de respaldo.
+- **Íconos:** si usas un ícono nuevo de `lucide-react` en `features.items`, agrégalo también al mapa en `src/components/ui/Icon.tsx`, o no se renderizará.
+- **Formulario de contacto:** actualmente el `onSubmit` del Footer tiene un placeholder. Para producción, conectar con Supabase (tabla sugerida: `leads` con columnas `name, email, message, source, created_at`).
+- **Fuentes:** cambiar la pareja tipográfica (actualmente Space Grotesk + Inter) se hace en `src/app/layout.tsx`, importando otra fuente de `next/font/google`.
+
+---
+
+## Checklist antes de entregar a un cliente
+
+- [ ] `siteConfig.ts` completo (sin textos de ejemplo tipo "Acme Studio")
+- [ ] Imágenes reales en `/public` (logo, hero, avatares)
+- [ ] Favicon y `og:image` actualizados
+- [ ] Formulario conectado a Supabase (o a donde el cliente reciba los leads)
+- [ ] Probado en mobile
+- [ ] `npm run build` sin errores
+- [ ] Deploy funcionando en Vercel con dominio propio o subdominio de Vercel
