@@ -13,7 +13,7 @@ export function FAQ() {
   return (
     <section className="py-24">
       <div className="mx-auto max-w-3xl px-6">
-        <h2 className="text-3xl md:text-4xl font-bold text-secondary text-center">
+        <h2 className="font-display text-3xl md:text-4xl font-bold text-secondary text-center">
           {faq.title}
         </h2>
 

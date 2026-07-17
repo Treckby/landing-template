@@ -8,7 +8,7 @@ export function Pricing() {
   return (
     <section id="pricing" className="py-24">
       <div className="mx-auto max-w-7xl px-6">
-        <h2 className="text-3xl md:text-4xl font-bold text-secondary text-center">
+        <h2 className="font-display text-3xl md:text-4xl font-bold text-secondary text-center">
           {pricing.title}
         </h2>
 
@@ -16,11 +16,10 @@ export function Pricing() {
           {pricing.plans.map((plan, i) => (
             <div
               key={i}
-              className={`p-8 rounded-xl border ${
-                plan.highlighted
-                  ? "border-primary shadow-lg scale-105"
-                  : "border-gray-200"
-              }`}
+              className={`p-8 rounded-2xl transition-all duration-300 ${plan.highlighted
+                ? "ring-2 ring-primary shadow-[0_20px_40px_-12px_var(--color-primary)] scale-105"
+                : "ring-1 ring-black/5 hover:-translate-y-1"
+                }`}
             >
               {plan.highlighted && (
                 <span className="inline-block px-3 py-1 text-xs font-medium bg-primary text-white rounded-full">
@@ -47,11 +46,10 @@ export function Pricing() {
               </ul>
 
               <button
-                className={`mt-8 w-full py-3 rounded-lg font-medium transition ${
-                  plan.highlighted
+                className={`mt-8 w-full py-3 rounded-full font-medium transition active:scale-95 ${plan.highlighted
                     ? "bg-primary text-white hover:opacity-90"
                     : "bg-gray-100 text-secondary hover:bg-gray-200"
-                }`}
+                  }`}
               >
                 {plan.ctaText}
               </button>

@@ -4,6 +4,8 @@
   --color-primary: #0066ff;
   --color-secondary: #111827;
   --color-accent: #f59e0b;
+  --font-display: var(--font-display);
+  --font-body: var(--font-body);
 }
 
 :root {

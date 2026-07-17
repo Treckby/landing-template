@@ -8,13 +8,13 @@ export function Testimonials() {
   return (
     <section className="bg-gray-50 py-24">
       <div className="mx-auto max-w-7xl px-6">
-        <h2 className="text-3xl md:text-4xl font-bold text-secondary text-center">
+        <h2 className=" font-display text-3xl md:text-4xl font-bold text-secondary text-center">
           {testimonials.title}
         </h2>
 
         <div className="mt-16 grid grid-cols-1 md:grid-cols-3 gap-8">
           {testimonials.items.map((item, i) => (
-            <div key={i} className="bg-white p-8 rounded-xl shadow-sm">
+            <div key={i} className="bg-white p-8 rounded-2xl ring-1 ring-black/5 hover:shadow-[0_20px_40px_-12px_rgba(0,0,0,0.08)] transition-shadow">
               <p className="text-gray-600 italic">&ldquo;{item.quote}&rdquo;</p>
               <div className="mt-6 flex items-center gap-3">
                 {item.avatar && (

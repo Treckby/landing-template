@@ -23,7 +23,7 @@ return (
               className="object-contain"
             />
           )}
-          <span className="font-bold text-secondary text-lg">
+          <span className=" font-display font-bold text-secondary text-lg">
             {company.name}
           </span>
         </a>
@@ -43,7 +43,7 @@ return (
 
         <a
           href="#contact"
-          className="hidden md:inline-block px-5 py-2.5 rounded-lg bg-primary text-white text-sm font-medium hover:opacity-90 transition"
+          className="hidden md:inline-block px-5 py-2.5 rounded-full bg-primary text-white text-sm font-medium hover:opacity-90 transition"
         >
           {nav.ctaText}
         </a>
@@ -74,7 +74,7 @@ return (
           <a
             href="#contact"
             onClick={() => setIsOpen(false)}
-            className="px-5 py-2.5 rounded-lg bg-primary text-white text-sm font-medium text-center"
+            className="px-5 py-2.5 rounded-full bg-primary text-white text-sm font-medium text-center"
           >
             {nav.ctaText}
           </a>
