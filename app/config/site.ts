@@ -116,6 +116,16 @@ export const siteConfig = {
         },
       ],
     },
+    trustBar: {
+      enabled: true,
+      label: "Empresas que confían en nosotros",
+      logos: [
+        { name: "Empresa 1", src: "/logos/logo1.png" },
+        { name: "Empresa 2", src: "/logos/logo2.png" }, 
+        { name: "Empresa 3", src: "/logos/logo3.png" },
+        { name: "Empresa 4", src: "/logos/logo4.png" },
+      ],
+    },
   },
 
   contact: {

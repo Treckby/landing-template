@@ -1,5 +1,6 @@
 import { siteConfig } from "@/app/config/site";
 import Image from "next/image";
+import { Reveal } from "@/app/components/ui/Reveal";
 
 export function Testimonials() {
   const { testimonials } = siteConfig.sections;
@@ -14,6 +15,7 @@ export function Testimonials() {
 
         <div className="mt-16 grid grid-cols-1 md:grid-cols-3 gap-8">
           {testimonials.items.map((item, i) => (
+             <Reveal key={i} delay={i * 100}>
             <div key={i} className="bg-white p-8 rounded-2xl ring-1 ring-black/5 hover:shadow-[0_20px_40px_-12px_rgba(0,0,0,0.08)] transition-shadow">
               <p className="text-gray-600 italic">&ldquo;{item.quote}&rdquo;</p>
               <div className="mt-6 flex items-center gap-3">
@@ -34,6 +36,7 @@ export function Testimonials() {
                 </div>
               </div>
             </div>
+            </Reveal>
           ))}
         </div>
       </div>

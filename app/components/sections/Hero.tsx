@@ -32,9 +32,10 @@ export function Hero() {
 
           <a
             href={hero.ctaHref}
-            className="inline-block mt-10 px-8 py-3.5 rounded-full bg-primary text-white font-medium shadow-[0_8px_24px_-6px_var(--color-primary)] hover:opacity-90 active:scale-95 transition"
-          >
+           className="group inline-flex items-center gap-2 mt-10 px-8 py-3.5 rounded-full bg-primary text-white font-medium shadow-[0_8px_24px_-6px_var(--color-primary)] hover:opacity-90 active:scale-95 transition"
+>
             {hero.ctaText}
+            <span className="transition-transform group-hover:translate-x-1">→</span>
           </a>
         </div>
 

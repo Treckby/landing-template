@@ -46,6 +46,7 @@ return (
           className="hidden md:inline-block px-5 py-2.5 rounded-full bg-primary text-white text-sm font-medium hover:opacity-90 transition"
         >
           {nav.ctaText}
+          
         </a>
 
         {/* Botón hamburguesa mobile */}
@@ -77,6 +78,7 @@ return (
             className="px-5 py-2.5 rounded-full bg-primary text-white text-sm font-medium text-center"
           >
             {nav.ctaText}
+            
           </a>
         </nav>
       )}

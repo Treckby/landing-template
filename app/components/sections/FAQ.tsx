@@ -11,7 +11,7 @@ export function FAQ() {
   if (!faq.enabled) return null;
 
   return (
-    <section className="py-24">
+    <section className="py-24 bg-white">
       <div className="mx-auto max-w-3xl px-6">
         <h2 className="font-display text-3xl md:text-4xl font-bold text-secondary text-center">
           {faq.title}
