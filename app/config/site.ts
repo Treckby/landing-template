@@ -2,100 +2,100 @@ export type SiteConfig = typeof siteConfig;
 
 export const siteConfig = {
   company: {
-    name: "Acme Studio",
-    logo: "/logo.png", // ponla en /public
-    tagline: "Diseño y desarrollo web para negocios que quieren crecer",
+    name: "Fuerza Total Gym",
+    logo: "",
+    tagline: "Entrena con propósito. Resultados reales, sin excusas.",
   },
 
   theme: {
-    primaryColor: "#0066FF",
-    secondaryColor: "#111827",
-    accentColor: "#FFB800",
+    primaryColor: "#DC2626", // rojo intenso
+    secondaryColor: "#0F172A", // casi negro azulado
+    accentColor: "#F59E0B",
   },
 
   nav: {
     links: [
       { label: "Beneficios", href: "#features" },
-      { label: "Cómo funciona", href: "#how-it-works" },
-      { label: "Precios", href: "#pricing" },
+      { label: "Planes", href: "#pricing" },
       { label: "Contacto", href: "#contact" },
     ],
-    ctaText: "Empezar ahora",
+    ctaText: "Únete ahora",
   },
 
   sections: {
     hero: {
       enabled: true,
-      title: "Lleva tu negocio al siguiente nivel",
+      title: "Transforma tu cuerpo, transforma tu vida",
       subtitle:
-        "Creamos experiencias digitales que convierten visitantes en clientes.",
-      ctaText: "Solicita tu cotización",
+        "Entrenadores certificados, equipo de primer nivel y una comunidad que te empuja a dar más.",
+      ctaText: "Agenda tu clase de prueba",
       ctaHref: "#contact",
       image: "/hero-image.png",
     },
 
     features: {
       enabled: true,
-      title: "Por qué elegirnos",
+      title: "Por qué entrenar con nosotros",
       items: [
         {
           icon: "Zap",
-          title: "Rápido",
-          description: "Entregas en tiempo récord sin sacrificar calidad.",
+          title: "Entrenamiento intenso",
+          description: "Rutinas diseñadas para resultados en semanas, no meses.",
         },
         {
           icon: "ShieldCheck",
-          title: "Confiable",
-          description: "Procesos probados y soporte continuo.",
+          title: "Instructores certificados",
+          description: "Acompañamiento profesional en cada sesión.",
         },
         {
           icon: "TrendingUp",
-          title: "Resultados",
-          description: "Enfocados en métricas que le importan a tu negocio.",
+          title: "Seguimiento de progreso",
+          description: "Mide tu avance con evaluaciones mensuales.",
         },
       ],
     },
 
     howItWorks: {
-      enabled: false, // actívalo solo si el cliente lo necesita
-      title: "Cómo funciona",
-      steps: [
-        { number: "1", title: "Agenda una llamada", description: "..." },
-        { number: "2", title: "Definimos el plan", description: "..." },
-        { number: "3", title: "Lanzamos", description: "..." },
-      ],
+      enabled: false,
+      title: "",
+      steps: [],
     },
 
     testimonials: {
       enabled: true,
-      title: "Lo que dicen nuestros clientes",
+      title: "Nuestros miembros hablan",
       items: [
         {
-          name: "María López",
-          role: "CEO, Empresa X",
-          quote: "Superaron nuestras expectativas por completo.",
-          avatar: "/avatars/maria.jpg",
+          name: "Carlos Ramírez",
+          role: "Miembro desde 2023",
+          quote: "Bajé 15kg en 4 meses. El acompañamiento hace toda la diferencia.",
+          avatar: "",
         },
       ],
     },
 
     pricing: {
       enabled: true,
-      title: "Planes",
+      title: "Membresías",
       plans: [
         {
-          name: "Básico",
-          price: "$499",
-          period: "único pago",
-          features: ["Landing page", "1 revisión", "Entrega en 5 días"],
+          name: "Básica",
+          price: "$399",
+          period: "/mes",
+          features: ["Acceso a gimnasio", "Horario regular", "Casillero"],
           ctaText: "Elegir plan",
           highlighted: false,
         },
         {
-          name: "Pro",
-          price: "$899",
-          period: "único pago",
-          features: ["Landing page", "3 revisiones", "SEO básico", "Formulario"],
+          name: "Premium",
+          price: "$699",
+          period: "/mes",
+          features: [
+            "Acceso 24/7",
+            "Clases grupales",
+            "1 sesión personal/mes",
+            "Plan nutricional",
+          ],
           ctaText: "Elegir plan",
           highlighted: true,
         },
@@ -107,23 +107,26 @@ export const siteConfig = {
       title: "Preguntas frecuentes",
       items: [
         {
-          question: "¿Cuánto tarda la entrega?",
-          answer: "Entre 5 y 10 días hábiles dependiendo del plan.",
+          question: "¿Necesito experiencia previa?",
+          answer: "No, tenemos rutinas para todos los niveles, desde principiantes.",
+        },
+        {
+          question: "¿Puedo cancelar en cualquier momento?",
+          answer: "Sí, sin penalización, con 5 días de aviso.",
         },
       ],
     },
   },
 
   contact: {
-    email: "contacto@acmestudio.com",
-    whatsapp: "+52 668 000 0000",
+    email: "contacto@fuerzatotal.com",
+    whatsapp: "+52 668 111 2222",
     formEnabled: true,
   },
 
   footer: {
     socials: [
       { platform: "Instagram", href: "https://instagram.com" },
-      { platform: "Facebook", href: "https://facebook.com" },
     ],
   },
 } as const;

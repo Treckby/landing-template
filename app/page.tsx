@@ -1,3 +1,4 @@
+import { Header } from "@/app/components/sections/Header";
 import { Hero } from "@/app/components/sections/Hero";
 import { Features } from "@/app/components/sections/Features";
 import { Testimonials } from "@/app/components/sections/Testimonials";
@@ -8,6 +9,7 @@ import { Footer } from "@/app/components/sections/Footer";
 export default function Home() {
   return (
     <main>
+      <Header/>
       <Hero />
       <Features />
       <Testimonials />
